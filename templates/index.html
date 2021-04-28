@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BCPS</title>
+<meta charset="utf-8">
+<link rel="icon" href="static/img/icon.png" type="image/x-icon">
+<link rel="stylesheet" href="static/css/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/responsive.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/touchTouch.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/kwicks-slider.css" type="text/css" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+<script src="static/js/jquery.js"></script>
+<script src="static/js/superfish.js"></script>
+<script src="static/js/jquery.flexslider-min.js"></script>
+<script src="static/js/jquery.kwicks-1.5.1.js"></script>
+<script src="static/js/jquery.easing.1.3.js"></script>
+<script src="static/js/jquery.cookie.js"></script>
+<script src="static/js/touchTouch.jquery.js"></script>
+<script>
+if ($(window).width() > 1024) {
+    document.write("<" + "script src='static/js/jquery.preloader.js'></" + "script>");
+}
+</script>
+<script>
+jQuery(window).load(function () {
+    $x = $(window).width();
+    if ($x > 1024) {
+        jQuery("#content .row").preloader();
+    }
+    jQuery('.magnifier').touchTouch();
+    jQuery('.spinner').animate({
+        'opacity': 0
+    }, 1000, 'easeOutCubic', function () {
+        jQuery(this).css('display', 'none')
+    });
+});
+</script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="static/js/html5.js"></script>
+<link rel="stylesheet" href="static/css/docs.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/ie.css" type="text/css" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+<![endif]-->
+</head>
+<body>
+<div class="spinner"></div>
+<header>
+  <div class="container clearfix">
+    <div class="row">
+      <div class="span12">
+        <div class="navbar navbar_">
+          <div class="container">
+            <h1 class="brand brand_"><a href="#"><img alt="" src="static/img/bcps.png"> </a></h1>
+            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
+            <div class="nav-collapse nav-collapse_  collapse">
+              <ul class="nav sf-menu">
+                <li><a href="{{url_for('index')}}">Home</a></li>
+                <li><a href="{{url_for('loan_predict')}}">Loan Predict</a></li>
+                <li><a href="{{url_for('customer_predict')}}">Customer Predict</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="bg-content">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="flexslider">
+          <ul class="slides">
+            <li> <img src="static/img/slide-1.jpg" alt=""> </li>
+			<li> <img src="static/img/slide-2.jpg" alt=""> </li>
+            <li> <img src="static/img/slide-3.jpg" alt=""> </li>
+			<li> <img src="static/img/slide-4.jpg" alt=""> </li>
+          </ul>
+        </div>
+        <span id="responsiveFlag"></span>
+        <div class="block-slogan">
+          <h2>Welcome</h2>
+          <div>
+            <p>Banking Customer Prediction System is a Machine Learning base project working on a customer of a bank is fulfill the criteria to get loan from the bank.
+                This can be used by banking authority to check customer's requirement is fulfill or not. This project also include a customer exit prediction system that
+                can be predict by taking some customer's data that the customer will leave the bank or not. A AI voice assistant is integrated in this system for any
+                help the bank authority to search any query in internet over voice. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+<footer>
+  <div class="container clearfix">
+    <ul class="list-social pull-right">
+      <li><a class="icon-1" href="#"></a></li>
+      <li><a class="icon-2" href="#"></a></li>
+      <li><a class="icon-3" href="#"></a></li>
+      <li><a class="icon-4" href="#"></a></li>
+    </ul>
+    <div class="privacy pull-left">Copyrights @ BCPS <br> 2021</div>
+  </div>
+</footer>
+<script src="static/js/bootstrap.js"></script>
+</body>
+</html>

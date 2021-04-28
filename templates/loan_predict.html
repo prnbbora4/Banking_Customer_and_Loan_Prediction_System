@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BCPS</title>
+<meta charset="utf-8">
+<link rel="icon" href="static/img/icon.png" type="image/x-icon">
+<link rel="stylesheet" href="static/css/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/responsive.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/touchTouch.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/kwicks-slider.css" type="text/css" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+<script src="static/js/jquery.js"></script>
+<script src="static/js/superfish.js"></script>
+<script src="static/js/jquery.flexslider-min.js"></script>
+<script src="static/js/jquery.kwicks-1.5.1.js"></script>
+<script src="static/js/jquery.easing.1.3.js"></script>
+<script src="static/js/jquery.cookie.js"></script>
+<script src="static/js/touchTouch.jquery.js"></script>
+<script>
+if ($(window).width() > 1024) {
+    document.write("<" + "script src='static/js/jquery.preloader.js'></" + "script>");
+}
+</script>
+<script>
+jQuery(window).load(function () {
+    $x = $(window).width();
+    if ($x > 1024) {
+        jQuery("#content .row").preloader();
+    }
+    jQuery('.magnifier').touchTouch();
+    jQuery('.spinner').animate({
+        'opacity': 0
+    }, 1000, 'easeOutCubic', function () {
+        jQuery(this).css('display', 'none')
+    });
+});
+</script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="static/js/html5.js"></script>
+<link rel="stylesheet" href="static/css/docs.css" type="text/css" media="screen">
+<link rel="stylesheet" href="static/css/ie.css" type="text/css" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="static/css/style1.css" type="text/css" media="screen">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<![endif]-->
+</head>
+<body>
+<div class="spinner"></div>
+<header>
+  <div class="container clearfix">
+    <div class="row">
+      <div class="span12">
+        <div class="navbar navbar_">
+          <div class="container">
+            <h1 class="brand brand_"><a href="#"><img alt="" src="static/img/bcps.png"> </a></h1>
+            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
+            <div class="nav-collapse nav-collapse_  collapse">
+              <ul class="nav sf-menu">
+                <li><a href="{{url_for('index')}}">Home</a></li>
+                <li><a href="{{url_for('loan_predict')}}">Loan Predict</a></li>
+                <li><a href="{{url_for('customer_predict')}}">Customer Predict</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="jumbotron">
+        <center>
+        <form  action="{{url_for('loan_predict')}} " method="get">
+          <select  name="Gender" placeholder="Gender" required="required">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option> </select> <br> <br>
+
+          <select  name="Married" placeholder="Married" required="required">
+            <option value="Yes">Married</option>
+            <option value="No">Unmarried</option> </select> <br> <br>
+
+          <input type="text" name="Dependents" placeholder="Dependents" required="required"> <br> <br>
+
+          <select  name="Education" placeholder="Education" required="required">
+            <option value="Graduate">Graduate</option>
+            <option value="Not Graduate">Not Graduate</option> </select> <br> <br>
+
+          <select  name="Self_Employed" placeholder="Self_Employed" required="required">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option> </select> <br> <br>
+
+          <input type="text" name="ApplicantIncome" placeholder="ApplicantIncome" required="required"> <br> <br>
+          <input type="text" name="CoapplicantIncome" placeholder="CoapplicantIncome" required="required"> <br> <br>
+          <input type="text" name="LoanAmount" placeholder="LoanAmount" required="required"> <br> <br>
+
+          <input type="text" name="Loan_Amount_Term" placeholder="Loan_Amount_Term" required="required"> <br> <br>
+          <input type="text" name="Credit_History" placeholder="Credit_History" required="required"> <br> <br>
+
+          <select  name="Property_Area" placeholder="Property_Area" required="required">
+            <option value="Rural">Rural</option>
+            <option value="Urban">Urban</option>
+            <option value="Semiurban">Semi urban</option> </select> <br> <br>
+
+          <button type="submit" name="predict" value="predict" class="btn btn-primary btn-lg">Predict</button> <br> <br>
+        </form>
+          {{p_text}}
+      </center>
+</div>
+
+<footer>
+  <div class="container clearfix">
+    <ul class="list-social pull-right">
+      <li><a class="icon-1" href="#"></a></li>
+      <li><a class="icon-2" href="#"></a></li>
+      <li><a class="icon-3" href="#"></a></li>
+      <li><a class="icon-4" href="#"></a></li>
+    </ul>
+    <div class="privacy pull-left">Copyrights @ BCPS <br> 2021</div>
+  </div>
+</footer>
+<script src="static/js/bootstrap.js"></script>
+</body>
+</html>
