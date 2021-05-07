@@ -31,7 +31,7 @@ def loan_predict():
     Credit_History = request.args.get('Credit_History', type=float)
     Property_Area = request.args.get('Property_Area')
 
-    predict = request.args.get('predict',type = str)
+    predict = request.args.get('predict', type=str)
 
     if predict == "predict":
         print(type(Dependents))
@@ -87,12 +87,12 @@ def loan_predict():
         prediction = model.predict(final_features)
         prediction = (prediction>0.58)
 
-        X=pd.read_excel('Test_loan.xlsx')
-        X_test = sc.fit_transform(X)
-        y_pred = model.predict(X_test)
-        y_pred = (y_pred>0.58)
+        # X=pd.read_excel('Test_loan.xlsx')
+        # X_test = sc.fit_transform(X)
+        # y_pred = model.predict(X_test)
+        # y_pred = (y_pred>0.58)
         # output = round(prediction[0], 2)
-        return render_template('loan_predict.html', p_text="Prediction : " + ("Approved" if y_pred[1] else "Not Approved"))
+        return render_template('loan_predict.html', p_text="Prediction : " + ("Approved" if prediction[0] else "Not Approved"))
     return render_template('loan_predict.html')
 
 
