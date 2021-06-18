@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import load_model
-import numpy as np
+# import numpy as np
 import pandas as pd
 
 # import math
